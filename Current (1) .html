@@ -1,0 +1,73 @@
+<html>
+    <head>
+        <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
+        <script src="https://unpkg.com/aframe-event-set-component@3.0.3/dist/aframe-event-set-component.min.js"></script>
+        <script src="https://rawgit.com/dbradleyfl/aframe-gridhelper/master/dist/aframe-gridhelper-component.min.js"></script>
+    </head>
+    <body>
+
+<a-scene>
+
+    <a-entity gridhelper position = "0 -0.5 0" scale = "0.2 0.2 0.2"
+                        divisions = "5" colorGrid ="blue" colorCenterLine = "blue"></a-entity> 
+
+
+
+    <a-entity id="camera"  look-controls cursor="rayOrigin: mouse"></a-entity>
+
+    <a-box id ="wbox"color="black" depth="1" height="1" width="1" wireframe="1" wireframe-linewidth="5"
+    event-set__enter="_event: mouseenter; color: white"
+    event-set__leave="_event: mouseleave; color: black"
+    event-set__click="_event: click; color: orange; height: 2; segments-height: 2; position: 0 .5 0">
+    
+</a-box>
+
+   <a-box id="resetbox"  position ="-2 0 0"color="red" scale ="1 1 1"
+   event-set__enter="_event: mouseenter; color: black; _target: #nameoftext; visible: true"
+   event-set__leave="_event: mouseleave; color: red ;_target: #nameoftext; visible: false"
+   event-set__click="_event: click; _target: #wbox; color: black; height: 1; segments-height: 0 ; easing: linear; dur: 3000; position: 0 0 0 ">
+   <a-text id="nameoftext" value="click this box to reset" align="center" color="yellow" visible="false" position="0 -1 0" scale =".5 .5 "
+    ></a-text>> 
+
+   ></a-box>
+
+
+
+
+    <a-triangle position="2 0 0" scale ="1 1 1"
+             animation__mouseenter="property: components.material.material.color; type: color; from: red; to: blue; startEvents: mouseenter; dur: 500"
+             animation__mouseleave="property: components.material.material.color; type: color; from: blue; to: red; startEvents: mouseleave; dur: 500"
+
+    ></a-triangle>
+    
+       <!--
+            event-set__enter="_event: mouseenter; color: white; rotation: 0 360 45; loop: true; dur: 100"
+        event-set__leave="_event: mouseleave; color: grey; rotation: 0 40 42"> 
+       
+        <a-animation attribute="height"
+            animationbegin = "false"
+               dur="2000"
+               fill="forwards"
+               to="2"
+               repeat="mouseenter">
+        </a-animation>
+      -->
+     
+
+      <a-sky color="#DAD8CA" postion ="0 0 0" scale ="1 1 1">
+        <a-animation attribute="material.color" 
+        from="#DAD8CA" 
+        to="#D6DBDF" 
+        dur="1300" 
+        repeat="indefinite">n
+    </a-animation>
+    </a-sky>
+  
+ 
+   <a-camera position='0 1 4' user-height='0'>
+ <!--   <a-cursor color="red" ></a-cursor> -->
+  </a-camera>
+</a-scene>
+
+    </body>
+</html>

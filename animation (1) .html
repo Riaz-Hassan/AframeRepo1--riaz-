@@ -1,0 +1,30 @@
+<script src="https://aframe.io/releases/0.5.0/aframe.min.js"></script>
+<a-scene>
+    <a-box  depth="1" height="1" width="1"
+    animation__2 animation__mouseclick="color: black"">
+
+    <a-animation attribute="position"
+    dur="3000"
+    from="-2 0 0"
+    to="2 0 0"
+    repeat="indefinite">
+               
+               
+
+       <a-animation attribute="material.color" 
+               from="pink" to="blue" 
+               dur="3000" 
+               repeat="indefinite"></a-animation>
+
+     </a-box>
+     <a-sky color="black"></a-sky>
+     
+
+
+
+     <a-camera position='0 0 3' user-height='0' >
+        <a-cursor color="red" ></a-cursor>
+      </a-camera>
+</a-scene>
+
+

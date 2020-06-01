@@ -1,0 +1,40 @@
+<script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
+<script src="https://unpkg.com/aframe-event-set-component@3.0.3/dist/aframe-event-set-component.min.js"></script>
+
+  <body>
+
+    <a-scene>
+    <a-box position="0 1 -7" scale="2 2 2"  color="#FFC65D" geometry="primitive: box" material="opacity: 1"
+                event-set__enter="_event: mouseenter; _target: #nameoftext; visible: true"
+                event-set__leave="_event: mouseleave; _target: #nameoftext; visible: false">
+        <a-animation attribute="material.opacity" begin="fade" to="100"></a-animation>
+      </a-box>
+
+
+
+      <a-box position="2 1 -5" scale="1 1 1"  color="#AEC90C"
+                event-set__enter="_event: mouseenter; _target: #nameoftext; visible: true"
+                event-set__leave="_event: mouseleave; _target: #nameoftext; visible: false">
+      <a-text id="nameoftext" value="TEXT" align="center" color="black" visible="false" position="2 1 1" scale ="6 6"
+              ></a-text>
+    </a-box>
+
+
+    
+
+    <a-box position="-2 1 -5" scale="1 1 1"  color="#FFC65D"
+                event-set__enter="_event: mouseenter; _target: #nameoftext; visible: true"
+                event-set__leave="_event: mouseleave; _target: #nameoftext; visible: false">
+      <a-text id="nameoftext" value="A" align="center" color="black" visible="false" position="-2 0 0.5" scale ="5 5"
+              ></a-text>
+    </a-box>
+
+
+
+    <a-camera>
+        <a-cursor color="red" ></a-cursor>
+      </a-camera>
+
+</a-scene>
+</body>
+</html>
